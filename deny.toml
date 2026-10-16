@@ -1,0 +1,30 @@
+[graph]
+# The plugin only ships for Apple silicon; without this, Cargo.lock's
+# cross-platform resolution pulls in other targets' dependencies
+# (Android, Windows, wasm32) and their licenses.
+targets = ["aarch64-apple-darwin"]
+# Dev-dependencies of crates in the graph (e.g. their own test
+# fixtures) are never compiled into the plugin; their licenses don't apply.
+exclude-dev = true
+
+[advisories]
+ignore = []
+
+[licenses]
+allow = [
+    "Apache-2.0",
+    "MIT",
+    "Unicode-3.0",
+    "Unlicense",
+]
+confidence-threshold = 0.8
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []

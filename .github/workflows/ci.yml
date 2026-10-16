@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "*.md"
+      - ".beads/**"
+  pull_request:
+    paths-ignore:
+      - "*.md"
+      - ".beads/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    # the plugin targets Apple silicon on macOS 26
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: jdx/mise-action@9b200bcecbfd6303e69a4a261b2e09e3757440a7 # v5.2.0
+
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+
+      - name: Lint, test and validate
+        run: just check
+
+      - name: Audit
+        run: just audit
+
+      - name: Package
+        run: just package
+        env:
+          # CI has no certificate; releases sign with Developer ID
+          CONCAT_SIGN_IDENTITY: "-"

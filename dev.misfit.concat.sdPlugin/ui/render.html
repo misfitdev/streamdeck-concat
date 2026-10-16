@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="sdpi-components.js"></script>
+</head>
+<body>
+  <sdpi-item label="Project">
+    <sdpi-textfield setting="project" placeholder="/path/to/project folder" required></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item label="Output">
+    <sdpi-textfield setting="output" placeholder="~/Movies/&lt;project&gt;.mp4"></sdpi-textfield>
+  </sdpi-item>
+  <sdpi-item>
+    <details>
+      <summary>Notes</summary>
+      <p>Renders a project that is not open in the Concat window; the API refuses projects the window holds.</p>
+      <p>Requires Settings &gt; Remote in Concat to be on, with a token set.</p>
+    </details>
+  </sdpi-item>
+</body>
+</html>

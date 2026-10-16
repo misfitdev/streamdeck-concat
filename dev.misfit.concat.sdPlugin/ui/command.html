@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="sdpi-components.js"></script>
+</head>
+<body>
+  <sdpi-item label="Command">
+    <sdpi-select setting="command" default="play">
+      <option value="none">Nothing</option>
+        <optgroup label="Transport">
+          <option value="play">Play / pause</option>
+          <option value="step-back">Back 1 frame</option>
+          <option value="step-forward">Forward 1 frame</option>
+          <option value="step-back10">Back 10 frames</option>
+          <option value="step-forward10">Forward 10 frames</option>
+          <option value="start">Go to start</option>
+          <option value="end">Go to end</option>
+        </optgroup>
+        <optgroup label="Edit">
+          <option value="split">Split at playhead</option>
+          <option value="razor">Razor tool</option>
+          <option value="delete">Delete</option>
+          <option value="ripple-delete">Ripple delete</option>
+          <option value="undo">Undo</option>
+          <option value="redo">Redo</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="duplicate">Duplicate</option>
+          <option value="select-all">Select all</option>
+        </optgroup>
+        <optgroup label="Timeline">
+          <option value="snap">Toggle snap</option>
+          <option value="mute">Mute</option>
+          <option value="pan">Pan tool</option>
+          <option value="zoom-in">Zoom in</option>
+          <option value="zoom-out">Zoom out</option>
+        </optgroup>
+        <optgroup label="Project">
+          <option value="save">Save</option>
+          <option value="export">Export dialog</option>
+          <option value="import">Import media</option>
+        </optgroup>
+    </sdpi-select>
+  </sdpi-item>
+</body>
+</html>

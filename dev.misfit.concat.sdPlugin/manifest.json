@@ -1,0 +1,135 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+  "UUID": "dev.misfit.concat",
+  "Name": "Concat",
+  "Version": "0.1.0.0",
+  "Author": "misfitdev",
+  "Description": "Control the Concat video editor: transport, jog, zoom, edit commands, and background renders.",
+  "URL": "https://github.com/jub0t/concat",
+  "Icon": "imgs/plugin",
+  "CategoryIcon": "imgs/category",
+  "Category": "Concat",
+  "CodePath": "bin/concat-plugin",
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "6.5"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "26"
+    }
+  ],
+  "ApplicationsToMonitor": {
+    "mac": [
+      "app.concat.editor"
+    ]
+  },
+  "Actions": [
+    {
+      "UUID": "dev.misfit.concat.command",
+      "Name": "Command",
+      "Tooltip": "Send an editor shortcut to Concat",
+      "Icon": "imgs/actions/command",
+      "PropertyInspectorPath": "ui/command.html",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "imgs/actions/command-key",
+          "TitleAlignment": "middle"
+        }
+      ]
+    },
+    {
+      "UUID": "dev.misfit.concat.jog",
+      "Name": "Jog",
+      "Tooltip": "Step the playhead by frames",
+      "Icon": "imgs/actions/jog",
+      "PropertyInspectorPath": "ui/jog.html",
+      "Controllers": [
+        "Encoder"
+      ],
+      "Encoder": {
+        "layout": "$A1",
+        "Icon": "imgs/actions/jog",
+        "TriggerDescription": {
+          "Rotate": "Step frames (hold for 10)",
+          "Push": "Push action",
+          "Touch": "Toggle 1 / 10 frame step"
+        }
+      },
+      "States": [
+        {
+          "Image": "imgs/actions/jog-key"
+        }
+      ]
+    },
+    {
+      "UUID": "dev.misfit.concat.zoom",
+      "Name": "Zoom",
+      "Tooltip": "Zoom the timeline",
+      "Icon": "imgs/actions/zoom",
+      "PropertyInspectorPath": "ui/zoom.html",
+      "Controllers": [
+        "Encoder"
+      ],
+      "Encoder": {
+        "layout": "$A1",
+        "Icon": "imgs/actions/zoom",
+        "TriggerDescription": {
+          "Rotate": "Zoom in / out",
+          "Push": "Push action"
+        }
+      },
+      "States": [
+        {
+          "Image": "imgs/actions/zoom-key"
+        }
+      ]
+    },
+    {
+      "UUID": "dev.misfit.concat.status",
+      "Name": "Status",
+      "Tooltip": "API connection status; press to bring Concat forward",
+      "Icon": "imgs/actions/status",
+      "Controllers": [
+        "Keypad"
+      ],
+      "UserTitleEnabled": false,
+      "States": [
+        {
+          "Image": "imgs/actions/status-key",
+          "TitleAlignment": "bottom"
+        }
+      ]
+    },
+    {
+      "UUID": "dev.misfit.concat.render",
+      "Name": "Render",
+      "Tooltip": "Export a closed project in the background; press again to cancel",
+      "Icon": "imgs/actions/render",
+      "PropertyInspectorPath": "ui/render.html",
+      "Controllers": [
+        "Keypad",
+        "Encoder"
+      ],
+      "UserTitleEnabled": false,
+      "Encoder": {
+        "layout": "$B1",
+        "Icon": "imgs/actions/render",
+        "TriggerDescription": {
+          "Push": "Start / cancel render",
+          "Touch": "Start / cancel render"
+        }
+      },
+      "States": [
+        {
+          "Image": "imgs/actions/render-key",
+          "TitleAlignment": "bottom"
+        }
+      ]
+    }
+  ]
+}

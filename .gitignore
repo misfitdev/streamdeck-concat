@@ -1,0 +1,21 @@
+/target
+/dist
+dev.misfit.concat.sdPlugin/bin/
+dev.misfit.concat.sdPlugin/logs/
+*.streamDeckPlugin
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
+.beads/proxieddb/
+*.gate.lock*
+.beads/*
+!.beads/README.md
+
+# Agent working state
+.claude/
+.codex/
+.cursor/
+.serena/
+CLAUDE.md
